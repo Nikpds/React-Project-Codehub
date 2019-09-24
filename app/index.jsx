@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Dashboard from "./components/Dashboard";
-import Layout from "./components/layout/Layout";
+import Layout from "./components/layout";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./app.css";
 

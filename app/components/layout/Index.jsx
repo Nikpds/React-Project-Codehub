@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "reactstrap";
 import HeadFootContainer from "./HeadFootContainer";
-import EmployeeContainer from "../employee/EmployeeContainer";
+import EmployeeContainer from "../employee/Index";
 
 const Layout = () => (
   <Container>

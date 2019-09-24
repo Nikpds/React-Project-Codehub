@@ -4,9 +4,7 @@ import Employee from "./Employee";
 import Employees from "./Employees";
 import useFetch from "../../services/hooks/useFetch";
 import axios from "axios";
-
-const url = "http://localhost:3001/employees";
-const urlUpdate = "http://localhost:3001/employees";
+import { api } from "../../services/apiRoutes";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -23,8 +21,10 @@ const reducer = (state, action) => {
   }
 };
 
+
+
 const EmployeeContainer = () => {
-  const { data: initialState = [] } = useFetch(url, "GET");
+  const { data: initialState = [] } = useFetch(api.getEmployees, "GET");
   const [employees, dispatch] = useReducer(reducer, initialState);
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
@@ -35,9 +35,15 @@ const EmployeeContainer = () => {
   const onFormSubmit = async (e, employee) => {
     e.preventDefault();
     const { id, ...rest } = employee;
-    const response = await axios.put(`${urlUpdate}/${id}`, rest);
+    const response = await axios.put(`${api.updateEmployee}/${id}`, rest);
     if (response && response.status === 200) {
       dispatch({ type: "updateOne", value: response.data });
+    }
+  };
+
+  const setColorOnSelected = (empId) => {
+    if (selectedEmployee && empId === selectedEmployee.id) {
+      return "selected";
     }
   };
 
@@ -51,7 +57,7 @@ const EmployeeContainer = () => {
         <div className="employees-container">
           <div className="employees-list">
             <Employees
-              id={selectedEmployee ? selectedEmployee.id : null}
+              isSelected={setColorOnSelected}
               employees={employees}
               onSelectEmployee={onSelectEmployee}
             />
