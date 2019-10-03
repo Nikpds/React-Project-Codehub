@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "../shared/Controls";
 
-const Employees = ({ employees, isSelected,onSelectEmployee }) => (
+const Employees = ({ employees, isSelected, onSelectEmployee }) => (
   <ul>
     {employees &&
       employees.length &&

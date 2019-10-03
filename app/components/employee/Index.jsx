@@ -2,7 +2,7 @@ import React, { useState, useReducer, useEffect } from "react";
 import { Row, Col } from "reactstrap";
 import Employee from "./Employee";
 import Employees from "./Employees";
-import useFetch from "../../services/hooks/useFetch";
+import useFetch from "../../hooks/useFetch";
 import axios from "axios";
 import { api } from "../../services/apiRoutes";
 
@@ -25,7 +25,9 @@ const reducer = (state, action) => {
 
 const EmployeeContainer = () => {
   const { data: initialState = [] } = useFetch(api.getEmployees, "GET");
+
   const [employees, dispatch] = useReducer(reducer, initialState);
+  
   const [selectedEmployee, setSelectedEmployee] = useState(null);
 
   const onSelectEmployee = (selectedEmployee) => {
