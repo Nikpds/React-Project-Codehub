@@ -1,13 +1,13 @@
-import React from 'react';
-import { Jumbotron, Button } from 'reactstrap';
+import React from "react";
+import { Jumbotron, Button } from "reactstrap";
 
 const Home = () => {
 
   function goToGit() {
-    window.open("https://github.com/Nikpds/", "_blank")
+    window.open("https://github.com/Nikpds/", "_blank");
   }
   return (
-    <Jumbotron style={{ background: '#ffdd965c' }}>
+    <Jumbotron style={{ background: "#ffdd965c" }}>
       <h1 className="display-3">Hello, Codehub !</h1>
       <p className="lead">This is a simple application with basic and advance react patterns. Routing and Context api is also used
       . A dummy login with authorize routing and jwt example</p>

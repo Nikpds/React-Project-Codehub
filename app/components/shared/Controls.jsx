@@ -34,8 +34,8 @@ export const Input = ({ name, label, value, changeValue }) => (
 export const Image = (
   { src, alt = "No Image", className = "img",
     dims = { width: 70, height: 70 } }) => (
-    <div className={className}>
-      <img width={dims.width} height={dims.height}
-        className="rounded-circle" src={src} alt={alt} />
-    </div>
-  );
+  <div className={className}>
+    <img width={dims.width} height={dims.height}
+      className="rounded-circle" src={src} alt={alt} />
+  </div>
+);

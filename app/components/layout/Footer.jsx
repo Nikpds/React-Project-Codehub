@@ -1,7 +1,8 @@
 import React from "react";
 import { Row, Col } from "reactstrap";
-
-export default function Footer({ user }) {
+import { useAuth } from "../../hooks/useAuth";
+export default function Footer() {
+  const { user } = useAuth();
   return (
     <Row>
       <Col xs={12}>
@@ -12,7 +13,8 @@ export default function Footer({ user }) {
             </div>
           )}
           <div>
-            Made with ❤️ in Athens, Greece | <a href="https://tsevdos.me">tsevdos.me</a>
+            Made with ❤️ in Athens, Greece |{" "}
+            <a href="https://tsevdos.me">tsevdos.me</a>
           </div>
         </footer>
       </Col>
